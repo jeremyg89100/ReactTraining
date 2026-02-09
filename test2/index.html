@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div id="root"></div>
+    </header>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function Header() {
+        const h1 = "La maison jungle ";
+        return <h1> {h1.toUpperCase()} </h1>;
+      }
+      function Description() {
+        const plantes =
+          "Ici achetez toutes les plantes dont vous avez toujours rêvé 🌵🌱🎍";
+        return <p>{plantes.toUpperCase()}</p>;
+      }
+      function Banner() {
+        return (
+          <div>
+            <Header />
+            <Description />{" "}
+          </div>
+        );
+      }
+      function Cart() {
+        let plantes = ["monstera", "lierre", "bouquet de fleurs"];
+        const monsteraPrice = 8;
+        const ivyPrice = 10;
+        const flowerPrice = 15;
+
+        return (
+          <div>
+            <ul>
+              <h2>Panier</h2>
+              <li>Monstera : {monsteraPrice}€</li>
+              <li>Lierre : {ivyPrice}€ </li>
+              <li>Bouquet de fleurs : {flowerPrice}€ </li>
+            </ul>
+            Total : {monsteraPrice + ivyPrice + flowerPrice}€
+          </div>
+        );
+      }
+
+      ReactDOM.render(
+        <div>
+          {" "}
+          <Banner />
+          <Cart />
+        </div>,
+        //Lorsqu'on rajoute 2 éléments, il faut le wrap en l'entourant par exemple d'une div ou de React.Fragment
+        document.querySelector("#root"),
+      );
+    </script>
+  </body>
+</html>
